@@ -1,0 +1,135 @@
+{% extends "layouts/master.html" %}
+{% block module %} CONTENT MANAGER SYSTEM {% endblock %}
+{% block crump %} Content/Home {% endblock %}
+
+
+
+{% block content %}
+  
+   <div class="row">
+  <section class="col-lg-5 connectedSortable">
+    <div class="card card-danger">
+      <div class="card-header">
+        <h3 class="card-title">Website Setting</h3>    
+      </div>
+      <!-- /.card-header -->
+      <!-- form start -->
+      <form>
+        <div class="card-body">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Title</label>
+              <input type="text" class="form-control" id="web_title" placeholder="Enter Website Title here" value="{{websetting[0]['content']}}">
+            </div>
+          </div>
+          <div class="form-group custom-file">
+            <input type="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile">Choose file as icon</label>
+          </div> 
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary" id="update_website">Update Website</button>
+        </div>
+      </form>
+    </div>
+
+      <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Home Setting</h3>    
+      </div>
+      <!-- /.card-header -->
+      <!-- form start -->
+      <form>
+        <div class="card-body">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Greeting</label>
+              <input type="text" class="form-control" id="home_greetings" placeholder="Enter Greeting here" value="{{homesetting[0]['content']}}">
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Owner</label>
+              <input type="text" class="form-control" id="home_owner" placeholder="Enter Owner here" value="{{homesetting[1]['content']}}">
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Position</label>
+              <input type="text" class="form-control" id="home_position" placeholder="Enter Position here" value="{{homesetting[2]['content']}}">
+            </div>
+          </div>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary" id="update_home">Update Home</button>
+        </div>
+      </form>
+    </div>
+</section>
+
+
+
+<section class="col-lg-7 connectedSortable">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Gallery</h3>
+        <div class="card-tools">
+        </button>
+    </div>
+</div>
+<!-- /.card-header -->
+<div class="card-body">
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+          <tr>
+            <th>#</th>
+                 <th>Name</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for x in data%}
+        <tr>
+            <td style="text-align: center; vertical-align: middle;">{{loop.index}}</td>
+            <td style="text-align: center; vertical-align: middle;"> </td>
+            <td style="text-align: center; vertical-align: middle;"></td>
+            <td style="text-align: center; vertical-align: middle;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a class="btn btn-block bg-danger btn-sm btn-app" id="delete_image"><i class="fas fa-trash"></i> Delete</a>
+                    </div>
+
+                      <div class="col-md-6">
+                        <a class="btn btn-block bg-success btn-sm btn-app" id="select_image"><i class="fas fa-trash"></i> Select</a>
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        {%endfor%}
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+            <th>Image</th>
+            <th>Action</th>
+    </tr>
+</tfoot>
+</table>
+</div>
+<!-- /.card-body -->
+</section>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+
+{% endblock %}

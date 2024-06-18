@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Steller landing page.">
+    <meta name="author" content="Devcrud">
+    <title>{{websetting[0]['content']}}</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='/stellar_assets/vendors/themify-icons/css/themify-icons.css')}}">
+    <!-- Bootstrap + Steller main styles -->
+	<link rel="stylesheet" href="{{ url_for('static',filename='/stellar_assets/css/steller.css')}}">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- Page navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" data-spy="affix" data-offset-top="0">
+    {% include "./includes/_frontNav.html" %}          
+    </nav>
+    <!-- End of page navibation -->
+
+    <!-- Page Header -->
+
+    <header class="header" id="home">
+        <div class="container">
+            <div class="infos">
+                <h6 class="subtitle">A BLACKLIST SELF</h6>
+                <h6 class="title">STUDIO</h6>
+              
+
+                <div class="buttons pt-3">
+                    <button class="btn btn-primary rounded">HIRE ME</button>
+                </div>    
+                <a class="social-item" target="_blank" href="https://www.facebook.com/blacliststudio"><i class="ti-facebook"></i></a>  
+
+                <div class="socials mt-4">
+                   
+                </div>
+            </div>              
+            <div class="img-holder">
+                <img src="{{ url_for('static',filename='/upload/{}'.format(homesetting[3]['content']))}}" alt="">
+            </div>      
+        </div>  
+
+        <!-- Header-widget -->
+        <div class="widget">
+            <div class="widget-item">
+                <h2>124</h2>
+                <p>Happy Clients</p>
+            </div>
+            <div class="widget-item">
+                <h2>456</h2>
+                <p>Project Completed</p>
+            </div>
+            <div class="widget-item">
+                <h2>789</h2>
+                <p>Awards Won</p>
+            </div>
+        </div>
+    </header>
+    <!-- End of Page Header -->
+    
+    <!-- About section -->
+    <section id="about" class="section mt-3">
+        <div class="container mt-5">
+            <div class="row text-center text-md-left">
+                <div class="col-md-3">
+                    <img src="{{ url_for('static',filename='/upload/{}'.format(aboutsetting[1]['content']))}}" alt="" class="img-thumbnail mb-4">
+                </div>
+                <div class="pl-md-4 col-md-9">
+                    <h6 class="title">{{homesetting[1]['content']}}</h6>
+                    <p class="subtitle">{{homesetting[2]['content']}}</p>
+                    {{aboutsetting[0]['content']}}
+                    <br>               
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service section -->
+    <section id="service" class="section">
+        <div class="container text-center">
+            <h6 class="subtitle">Service</h6>
+            <h6 class="section-title mb-4">What We Do</h6>
+            <p class="mb-5 pb-4">Our services contain prices and full information on what you get.<br>
+What you see is what you get!We are happily ready to serve you</p>
+
+ <div class="row text-left">
+
+    
+               
+    <div class="col-md-4"></div> <!-- First column -->
+    <div class="col-md-4 text-center"> <!-- Second column -->
+        <h1 class="text-center mb-2">BOOK NOW</h1>
+        <div class="card border mb-4">
+            <img src="static/upload/work.png" width="400px" height="300px" alt="" class="card-img-top w-100">
+            <button class="btn btn-sm danger" id="book-now" data-id="2" style="color: orange;" data-bs-toggle="modal" data-bs-target="#scheduleModal">Book Schedule</button>
+        </div>
+    </div>
+    <div class="col-md-4"></div> <!-- Third column -->
+    
+    <!-- Schedule Modal -->
+    <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="scheduleModalLabel">Select Date and Times</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="scheduleForm">
+                        <div class="mb-3">
+                            <label for="schedule-date" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="schedule-date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="schedule-time" class="form-label">Time</label>
+                            <input type="time" class="form-control" id="schedule-time" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="scheduleForm" class="btn btn-primary">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Include Bootstrap JS (if not already included) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.2.0/js/bootstrap.min.js"></script>
+    
+    <!-- Optional: Add custom JS to handle the form submission -->
+    <script>
+    document.getElementById('scheduleForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const date = document.getElementById('schedule-date').value;
+        const time = document.getElementById('schedule-time').value;
+        const dataId = document.getElementById('book-now').getAttribute('data-id');
+        // Add your code to handle the booking here
+        console.log(`Booking scheduled for: ${date} at ${time}, with data-id: ${dataId}`);
+        // Close the modal after submission
+        const scheduleModal = new bootstrap.Modal(document.getElementById('scheduleModal'));
+        scheduleModal.hide();
+    });
+    </script>
+    
+                
+           
+
+            </div>
+        </div>
+    </section>
+    <!-- End of Sectoin -->
+
+    <!-- Skills section -->
+    <section class="section">
+        <div class="container text-center">
+            <h6 class="subtitle">Skills</h6>
+            <h6 class="section-title mb-4">Why Choose US</h6>
+            <p class="mb-5 pb-4">We have worked with multiple clients in the span of 2 years and counting
+<br>We have proof of our work and actual photo samples
+<br>We also cater in 3 multiple aspecs</p>
+
+            <div class="row text-left">
+                <div class="col-sm-6">
+                    <h6 class="mb-3">Solo Photography`</h6>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>89%</span></div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <h6 class="mb-3">Event Photography</h6>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 83%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>83%</span></div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <h6 class="mb-3">Photo Workshops</h6>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 95%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>95%</span></div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <h6 class="mb-3">Photo Editing</h6>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 90%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>90%</span></div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </section>
+    <!-- End of Skills sections -->
+
+    <!-- Portfolio section -->
+    <section id="portfolio" class="section">
+        <div class="container text-center">
+            <h6 class="subtitle">Portfolio</h6>
+            <h6 class="section-title mb-4">Check My Wonderful Works</h6>
+            <p class="mb-5 pb-4">Check out some of our clients and shoots!</p>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="img-wrapper">
+                        <img src="{{ url_for('static',filename='/upload/{}'.format('miles.jpg'))}}" alt="">
+                        <div class="overlay">
+                            <div class="overlay-infos">
+                                <h5>Miles random convenient store quick edits </h5>
+                                
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="{{ url_for('static',filename='/upload/{}'.format('bethuel20.jpg'))}}" alt="">
+                        <div class="overlay">
+                            <div class="overlay-infos">
+                                <h5>Bethuel Birthday Shoot</h5>
+                                
+                            </div>                              
+                        </div>
+                    </div>                  
+                </div>
+                <div class="col-sm-4">
+                    <div class="img-wrapper">
+                        <img src="{{ url_for('static',filename='/upload/{}'.format('jelly.jpg'))}}" alt="">
+                
+                        <div class="overlay">
+                            <div class="overlay-infos">
+                                <h5>Jelly Ms.SJHS Shoot</h5>
+                                
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="img-wrapper">
+                    <img src="{{ url_for('static',filename='/upload/{}'.format('leo.jpg'))}}" alt="">
+                        <div class="overlay">
+                            <div class="overlay-infos">
+                                <h5>Leo Mr.SJHS Shoot</h5>
+                              
+                            </div>                              
+                        </div>
+                    </div>                  
+                </div>
+                <div class="col-sm-4">
+                    <div class="img-wrapper">
+                    <img src="{{ url_for('static',filename='/upload/{}'.format('loki.jpg'))}}" alt="">
+                        <div class="overlay">
+                            <div class="overlay-infos">
+                                <h5>Loki's Birthday Shoot</h5>
+                             
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="img-wrapper">
+                                    <img src="{{ url_for('static',filename='/upload/{}'.format('marky2.jpg'))}}" alt="">
+                        <div class="overlay">
+                            <div class="overlay-infos">
+                                <h5>Mark's 19th Birthday shoot</h5>
+                               
+                            </div>                              
+                        </div>
+                    </div>                  
+                </div>
+            </div>
+
+        </div>
+
+        </div>
+    </section>
+    <!-- End of portfolio section -->
+
+  
+
+    <!-- Hire me section -->
+    <section class="bg-gray p-0 section">
+        <div class="container">
+            <div class="card bg-primary">
+                <div class="card-body text-light">
+                    <div class="row align-items-center">
+                        <div class="col-sm-9 text-center text-sm-left">
+                            <h5 class="mt-3">Hire Us For Your Photos/Events!</h5>
+                            <p class="mb-3">We are happy to execute the planned images in your heads!</p>
+                        </div>
+                        <div class="col-sm-3 text-center text-sm-right">
+                            <button class="btn btn-light rounded">Hire Us!</button>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>      
+    <!-- End od Hire me section. -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="position-relative section">
+        <div class="container text-center">
+            <h6 class="subtitle">Contact</h6>
+            <h6 class="section-title mb-4">Get In Touch With Me</h6>
+
+
+            <div class="contact text-left">
+                <div class="form">
+                    <h6 class="subtitle">Available 24/7</h6>
+                    <h6 class="section-title mb-4">Get In Touch</h6>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="contact-message" id="" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block rounded w-lg">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-infos">
+                    <div class="item">
+                        <i class="ti-location-pin"></i>
+                        <div class="">
+                            <h5>Location</h5>
+                            <p> Brgy 5, Buenavista City</p>
+                        </div>                          
+                    </div>
+                    <div class="item">
+                        <i class="ti-mobile"></i>
+                        <div>
+                            <h5>Phone Number</h5>
+                            <p>(+63) 951 451 2066</p>
+                        </div>                          
+                    </div>
+                    <div class="item">
+                        <i class="ti-email"></i>
+                        <div class="mb-0">
+                            <h5>Email Address</h5>
+                            <p>cabatinganmark30@gmail.com</p>
+                        </div>
+                    </div>
+                </div>                  
+            </div>
+        </div>  
+        <div id="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252299.7113579368!2d125.22576150887157!3d8.862550130610174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3301c7ed03cf6249%3A0xd09f15c60e5d227c!2sBuenavista%2C%20Agusan%20Del%20Norte!5e0!3m2!1sen!2sph!4v1674718430824!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>      
+    </section>
+    <!-- End of Contact Section -->
+
+    <!-- Page Footer -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-6">
+                    <p>Copyright <script>document.write(new Date().getFullYear())</script> &copy; <a href="#"   >Blacklist</a></p>
+                </div>
+                <div class="col-sm-6">
+                    <div class="socials">
+                        <a class="social-item" target="_blank" href="https://www.facebook.com/blacliststudio"><i class="ti-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> 
+    <!-- End of page footer -->
+
+
+    <!-- MODAL to shced informatin -->
+<div class="modal fade" id="modal-book">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="rent-tittle">BOOK</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form id="RentForm">
+            <input type="text" name="sid" id="service-id" hidden="" >
+           
+            <div class="form-floating mb-3">
+                <label for="inputTittle">Email</label>
+                <input class="form-control" id="name_event" type="text" placeholder="Enter Email" >
+            </div>
+
+            <div class="form-floating mb-3">
+                <label for="inputTittle">Contact No.</label>
+                <input class="form-control" id="contact_no" type="text" placeholder="Enter Contanct Number" >
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="form-floating mb-3 mb-md-0">
+                        <label for="inputAmount">Date of Event</label>
+                        <input class="form-control" id="date_from" type="date" >
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="schedule-time" class="form-label">Time</label>
+                            <input type="time" class="form-control" id="schedule-times" required>
+                       <h1 id="result"></h1>
+                
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="package-select" class="form-label">Package</label>
+                <select class="form-control" id="package-select" required>
+                    <option value="">Select Package</option>
+                    <option value="1">Package 1</option>
+                    <option value="2">Package 2</option>
+                    <option value="3">Package 3</option>
+                    <option value="4">Package 4</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" id="book-submit" class="btn btn-primary">Book Now</button>
+    </div>
+</div>
+</div>
+</div>
+
+
+</div>
+<!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+	
+	<!-- core  -->
+    <script src="{{ url_for('static',filename='/stellar_assets/vendors/jquery/jquery-3.4.1.js')}}"></script>
+    <script src="{{ url_for('static',filename='/stellar_assets/vendors/bootstrap/bootstrap.bundle.js')}}"></script>
+    <!-- bootstrap 3 affix -->
+	<script src="{{ url_for('static',filename='/stellar_assets/vendors/bootstrap/bootstrap.affix.js')}}"></script>
+
+    <!-- steller js-->
+    <script src="{{ url_for('static',filename='/stellar_assets/js/steller.js')}}"></script>
+
+
+<script type="text/javascript">
+
+
+$(document).on("click","#book-now", function(e){
+ 
+var id = $(this).data("id"); // service id
+$('#service-id').val(id);
+document.getElementById('date_from').valueAsDate = new Date();
+document.getElementById('date_from').minDate = 0
+$('#modal-book').modal('toggle');
+});
+
+//script dito
+
+
+
+
+$(document).on("click","#book-submit", function(e){
+
+    var service_ids = $('#service-id').val();
+    var names = $('#name_event').val();
+    var contact_no = $('#contact_no').val();
+    var book_date = $('#date_from').val();
+    var book_time = $('#schedule-times').val();
+    var package = $('#package-select').val();
+
+
+   
+
+    if ( service_ids == "" || names == ""  || contact_no == "" || book_date == ""|| package == "") {
+       alert('Lack of informatin')
+    }
+    else{
+
+       
+        $.ajax({
+            url : "{{ url_for('contents.book_now')}}",
+            type : "POST",
+            data : JSON.stringify({
+                service_id : service_ids, 
+                name : names,
+                contact_no: contact_no, 
+                book_date: book_date + "|" + book_time,
+                package: package,
+               }),
+            dataType : "json",
+            contentType : "application/json; charset=utf-8",
+            success : function(data){
+                if (data == 1) {
+
+                    location.reload()
+                    alert("You have succesfully booked on: " + book_date + " "+ book_time +" with package" +package + "Is Confirmed");
+             
+
+                }else{
+                    document.getElementById("result").innerHTML = "Date Not Available";
+                }
+            }
+        });
+    }
+
+
+
+    });
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

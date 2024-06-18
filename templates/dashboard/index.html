@@ -1,0 +1,152 @@
+{% extends "layouts/master.html" %}
+{% block module %} Dashboard {% endblock %}
+{% block crump %} Dashboard {% endblock %}
+
+
+
+{% block content %}
+{{data2}}
+<div class="row">
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-info">
+      <div class="inner">
+        <h3>{{data_count[0]}}</h3>
+
+        <p>New Bookings</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-bag"></i>
+      </div>
+      <a href="#" class="small-box-footer"> <i class="fas fa-arrow-circle-right"></i></a> 
+    </div>
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-success">
+      <div class="inner">
+        <h3>{{data_count[1]}}</h3>
+
+        <p>Today's Booked</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-stats-bars"></i>
+      </div>
+      <a href="#" class="small-box-footer"> <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-warning">
+      <div class="inner">
+        <h3>{{data_count[2]}}</h3>
+
+        <p>Pending booked</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-person-add"></i>
+      </div>
+      <a href="#" class="small-box-footer"> <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+
+</div>
+<!-- /.row -->
+<div class="row">
+  <section class="col-lg-7 connectedSortable">
+    <div class="card">
+      <div class="card-header border-0">
+        <h3 class="card-title">Today's Schedule</h3>
+        <div class="card-tools">
+          <a href="#" class="btn btn-tool btn-sm">
+            <i class="fas fa-download"></i>
+          </a>
+          <a href="#" class="btn btn-tool btn-sm">
+            <i class="fas fa-bars"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card-body table-responsive p-0">
+        <table class="table table-striped table-valign-middle">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Time</th>
+              <th>Service</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for x in data%}
+            <tr>
+              <td style="text-align: center; vertical-align: middle;">{{loop.index}}</td>
+              <td>{{x.name}}</td>
+        
+              <td>
+                {{x.booked_date| separate_by_pipe(1)}}
+              </td>
+              <td>Package {{x.service}}</td>
+            </tr>
+            {%endfor%}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+
+</section>
+
+<section class="col-lg-5 connectedSortable">
+  <div class="card">
+    <div class="card-header border-0">
+      <h3 class="card-title">Newly Booked</h3>
+      <div class="card-tools">
+        <a href="#" class="btn btn-tool btn-sm">
+          <i class="fas fa-download"></i>
+        </a>
+        <a href="#" class="btn btn-tool btn-sm">
+          <i class="fas fa-bars"></i>
+        </a>
+      </div>
+    </div>
+    <div class="card-body table-responsive p-0">
+      <table class="table table-striped table-valign-middle">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Time</th>
+            <th>Service</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for x in data2%}
+          <tr>
+            <td style="text-align: center; vertical-align: middle;">{{loop.index}}</td>
+            <td>{{x.name}}</td>
+      
+            <td>
+              {{x.booked_date| separate_by_pipe(1)}}
+            </td>
+            <td>Package {{x.service}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+
+{% endblock %}
